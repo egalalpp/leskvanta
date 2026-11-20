@@ -95,17 +95,16 @@ p {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(245, 242, 236, 0.86);
+  background: rgba(245, 242, 236, 0.88);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  transition: background-color 0.25s ease;
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
+  gap: 20px;
   height: 76px;
 }
 
@@ -113,6 +112,7 @@ p {
   display: flex;
   flex-direction: column;
   gap: 1px;
+  flex-shrink: 0;
 }
 
 .brand-name {
@@ -132,14 +132,15 @@ p {
 .main-nav {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 24px;
 }
 
 .main-nav a {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--ink-muted);
   position: relative;
   padding: 4px 0;
+  white-space: nowrap;
 }
 
 .main-nav a:hover,
@@ -168,11 +169,12 @@ p {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
+  flex-shrink: 0;
 }
 
 .header-phone {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 500;
   color: var(--ink);
   white-space: nowrap;
@@ -235,18 +237,19 @@ p {
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  padding: 36px 24px 40px;
+  padding: 28px 24px 36px;
+  overflow-y: auto;
 }
 
 .mobile-nav {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 14px;
 }
 
 .mobile-nav a {
   font-family: var(--font-serif);
-  font-size: 2rem;
+  font-size: 1.85rem;
   line-height: 1.15;
   color: var(--ink);
 }
@@ -259,7 +262,7 @@ p {
 }
 
 .mobile-phone {
-  font-size: 1.1rem;
+  font-size: 1.08rem;
   font-weight: 500;
 }
 
@@ -339,23 +342,23 @@ p {
 /* ---------- Первый экран (Hero) ---------- */
 
 .hero {
-  padding: 54px 0 88px;
+  padding: 52px 0 84px;
 }
 
 .hero-copy {
-  max-width: 760px;
+  max-width: 780px;
   margin-bottom: 44px;
 }
 
 .hero h1 {
-  font-size: clamp(2.65rem, 5.4vw, 4.5rem);
+  font-size: clamp(2.6rem, 5.3vw, 4.45rem);
   font-weight: 500;
   margin-bottom: 22px;
 }
 
 .hero-lead {
-  max-width: 620px;
-  font-size: 1.06rem;
+  max-width: 640px;
+  font-size: 1.05rem;
   line-height: 1.68;
   color: var(--ink-muted);
   margin-bottom: 30px;
@@ -432,7 +435,7 @@ p {
 /* ---------- Секции ---------- */
 
 .section {
-  padding: 96px 0;
+  padding: 94px 0;
 }
 
 .soft-surface {
@@ -457,7 +460,175 @@ p {
   line-height: 1.65;
 }
 
-/* ---------- Портфолио ---------- */
+/* ---------- Карусель 10 деревянных домов ---------- */
+
+.houses-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 32px;
+  margin-bottom: 36px;
+}
+
+.houses-sub {
+  margin-top: 14px;
+  max-width: 60ch;
+  font-size: 0.96rem;
+  color: var(--ink-muted);
+  line-height: 1.62;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-shrink: 0;
+}
+
+.carousel-counter {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--ink-muted);
+  min-width: 56px;
+  text-align: right;
+}
+
+.carousel-arrows {
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-btn {
+  width: 44px;
+  height: 44px;
+  background: var(--bg-elevated);
+}
+
+.houses-track {
+  display: flex;
+  gap: 28px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  padding-bottom: 8px;
+  outline: none;
+}
+
+.houses-track::-webkit-scrollbar {
+  display: none;
+}
+
+.house-slide {
+  flex: 0 0 calc(78% - 14px);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.house-slide-media {
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--bg);
+}
+
+.house-slide-media img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease);
+}
+
+.house-slide:hover .house-slide-media img {
+  transform: scale(1.025);
+}
+
+.house-slide-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 14px 32px;
+  align-items: start;
+}
+
+.house-slide-title {
+  font-family: var(--font-serif);
+  font-size: 1.85rem;
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 6px;
+  transition: color 0.2s ease;
+}
+
+.house-slide:hover .house-slide-title {
+  color: var(--accent);
+}
+
+.house-slide-region {
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+.house-slide-wood {
+  font-size: 0.92rem;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.house-slide-wood strong {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.house-slide-desc {
+  font-size: 0.91rem;
+  color: var(--ink-muted);
+  line-height: 1.58;
+  margin-bottom: 10px;
+}
+
+.house-slide-link {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.house-slide:hover .house-slide-link {
+  color: var(--accent);
+}
+
+.houses-nav-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--hairline);
+}
+
+.house-dot {
+  border: 0;
+  background: transparent;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.house-dot:hover {
+  color: var(--ink);
+  background: rgba(36, 31, 27, 0.05);
+}
+
+.house-dot.is-active {
+  background: var(--ink);
+  color: var(--bg-elevated);
+}
+
+/* ---------- Портфолио мебели и интерьеров ---------- */
 
 .filter-tabs {
   display: flex;
@@ -478,10 +649,7 @@ p {
   transition: color 0.2s ease;
 }
 
-.filter-tab:hover {
-  color: var(--ink);
-}
-
+.filter-tab:hover,
 .filter-tab.is-active {
   color: var(--ink);
 }
@@ -506,7 +674,7 @@ p {
 .portfolio-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 52px 34px;
+  gap: 50px 34px;
 }
 
 .project-card {
@@ -514,11 +682,6 @@ p {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
-}
-
-.project-card.is-wide {
-  grid-column: span 2;
 }
 
 .project-media {
@@ -532,10 +695,6 @@ p {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   transition: transform 0.7s var(--ease);
-}
-
-.project-card.is-wide .project-media img {
-  aspect-ratio: 16 / 9;
 }
 
 .project-card:hover .project-media img {
@@ -577,6 +736,349 @@ p {
 .project-tags {
   font-size: 0.8rem;
   color: var(--ink-soft);
+}
+
+/* ---------- Дизайнерский проект ---------- */
+
+.design-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 58px;
+}
+
+.design-copy h2 {
+  margin-bottom: 22px;
+}
+
+.design-copy p {
+  font-size: 0.98rem;
+  color: var(--ink-muted);
+  line-height: 1.7;
+}
+
+.design-copy p + p {
+  margin-top: 14px;
+}
+
+.design-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.design-photo {
+  margin: 0;
+}
+
+.design-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+}
+
+.design-photo figcaption {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+
+.design-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+  padding-top: 40px;
+  border-top: 1px solid var(--hairline);
+}
+
+.pillar-num {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.pillar h3 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.pillar p {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.6;
+}
+
+/* ---------- Материалы ---------- */
+
+.wood-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px 36px;
+}
+
+.wood-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.wood-swatch {
+  flex: 0 0 42px;
+  height: 42px;
+  border-radius: 50%;
+  margin-top: 3px;
+}
+
+.swatch-oak {
+  background: linear-gradient(135deg, #C7A67B 0%, #9E784E 60%, #86613A 100%);
+}
+
+.swatch-cedar {
+  background: linear-gradient(135deg, #D59A62 0%, #A96B38 65%, #844F24 100%);
+}
+
+.swatch-walnut {
+  background: linear-gradient(135deg, #6E4F3A 0%, #4A3224 65%, #372419 100%);
+}
+
+.swatch-ash {
+  background: linear-gradient(135deg, #E2CFAF 0%, #CBB087 65%, #B5956B 100%);
+}
+
+.swatch-larch {
+  background: linear-gradient(135deg, #BFA68A 0%, #937E69 65%, #6F6154 100%);
+}
+
+.swatch-hardware {
+  background: linear-gradient(135deg, #B5A794 0%, #837768 60%, #574F45 100%);
+}
+
+.wood-item h3 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.wood-item p {
+  font-size: 0.9rem;
+  color: var(--ink-muted);
+  line-height: 1.58;
+}
+
+/* ---------- Платёжка / Оплата ---------- */
+
+.payment-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  gap: 48px;
+  align-items: start;
+}
+
+.payment-presets {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.preset-option {
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-radius: var(--radius-md);
+  background: rgba(250, 248, 244, 0.52);
+  padding: 22px 24px;
+  cursor: pointer;
+  transition: background-color 0.22s ease, transform 0.2s var(--ease);
+}
+
+.preset-option:hover {
+  background: var(--bg-elevated);
+}
+
+.preset-option.is-selected {
+  background: var(--bg-elevated);
+  box-shadow: inset 3px 0 0 var(--accent);
+}
+
+.preset-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 6px;
+}
+
+.preset-name {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.preset-price {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.preset-desc {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  line-height: 1.55;
+}
+
+.custom-amount-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px 24px;
+  border-radius: var(--radius-md);
+  background: var(--bg-elevated);
+}
+
+.payment-panel {
+  background: var(--bg-elevated);
+  border-radius: var(--radius-md);
+  padding: 34px 36px;
+}
+
+.payment-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  padding-bottom: 20px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.payment-summary-label {
+  font-size: 0.94rem;
+  color: var(--ink-muted);
+}
+
+.payment-summary-amount {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.pay-method-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+  margin-bottom: 26px;
+}
+
+.pay-tab {
+  border: 0;
+  background: transparent;
+  padding: 5px 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.pay-tab:hover,
+.pay-tab.is-active {
+  color: var(--ink);
+}
+
+.pay-tab::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s var(--ease);
+}
+
+.pay-tab.is-active::after {
+  transform: scaleX(1);
+}
+
+.pay-pane {
+  display: none;
+}
+
+.pay-pane.is-active {
+  display: block;
+}
+
+.sbp-box {
+  display: flex;
+  gap: 26px;
+  align-items: flex-start;
+}
+
+.qr-wrap {
+  flex-shrink: 0;
+  background: var(--bg-soft);
+  padding: 10px;
+  border-radius: var(--radius-sm);
+}
+
+.sbp-details {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sbp-title {
+  font-weight: 600;
+  font-size: 0.98rem;
+  margin-bottom: 4px;
+}
+
+.sbp-meta {
+  font-size: 0.87rem;
+  color: var(--ink-muted);
+}
+
+.sbp-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.pay-card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.payment-footnote {
+  margin-top: 22px;
+  font-size: 0.79rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
 }
 
 /* ---------- О компании ---------- */
@@ -652,64 +1154,6 @@ p {
   font-size: 0.89rem;
   color: var(--ink-muted);
   line-height: 1.6;
-}
-
-/* ---------- Материалы ---------- */
-
-.wood-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 40px 36px;
-}
-
-.wood-item {
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
-}
-
-.wood-swatch {
-  flex: 0 0 42px;
-  height: 42px;
-  border-radius: 50%;
-  margin-top: 3px;
-}
-
-.swatch-oak {
-  background: linear-gradient(135deg, #C7A67B 0%, #9E784E 60%, #86613A 100%);
-}
-
-.swatch-walnut {
-  background: linear-gradient(135deg, #6E4F3A 0%, #4A3224 65%, #372419 100%);
-}
-
-.swatch-ash {
-  background: linear-gradient(135deg, #E2CFAF 0%, #CBB087 65%, #B5956B 100%);
-}
-
-.swatch-larch {
-  background: linear-gradient(135deg, #CFA273 0%, #B37E4C 65%, #936235 100%);
-}
-
-.swatch-wenge {
-  background: linear-gradient(135deg, #4B372E 0%, #2C201B 65%, #1E1613 100%);
-}
-
-.swatch-hardware {
-  background: linear-gradient(135deg, #B5A794 0%, #837768 60%, #574F45 100%);
-}
-
-.wood-item h3 {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 6px;
-}
-
-.wood-item p {
-  font-size: 0.9rem;
-  color: var(--ink-muted);
-  line-height: 1.58;
 }
 
 /* ---------- Руководитель и реквизиты ---------- */
@@ -991,6 +1435,7 @@ p {
 }
 
 .form-status {
+  margin-top: 16px;
   padding: 14px 16px;
   border-radius: var(--radius-sm);
   background: rgba(62, 80, 66, 0.1);
@@ -1080,7 +1525,7 @@ p {
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 1060px;
+  max-width: 1080px;
   max-height: 92vh;
   overflow-y: auto;
   background: var(--bg-elevated);
@@ -1144,7 +1589,7 @@ p {
 
 .modal-media img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
   border-radius: var(--radius-sm);
   background: var(--bg-soft);
@@ -1174,7 +1619,7 @@ p {
 
 .modal-spec-row {
   display: grid;
-  grid-template-columns: 120px minmax(0, 1fr);
+  grid-template-columns: 124px minmax(0, 1fr);
   gap: 12px;
   padding: 9px 0;
   border-bottom: 1px solid var(--hairline);
@@ -1222,9 +1667,19 @@ p {
 
 /* ---------- Адаптив ---------- */
 
+@media (max-width: 1100px) {
+  .main-nav {
+    gap: 16px;
+  }
+  .header-phone {
+    display: none;
+  }
+}
+
 @media (max-width: 1024px) {
   .facts-row,
-  .process-grid {
+  .process-grid,
+  .design-pillars {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1233,16 +1688,26 @@ p {
   }
 
   .about-layout,
+  .design-layout,
+  .payment-layout,
   .director-layout,
   .contacts-layout,
-  .modal-body {
+  .modal-body,
+  .house-slide-body {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 28px;
   }
 
-  .section-head {
+  .section-head,
+  .houses-head {
     grid-template-columns: 1fr;
-    gap: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .house-slide {
+    flex: 0 0 88%;
   }
 }
 
@@ -1273,24 +1738,27 @@ p {
     padding: 68px 0;
   }
 
+  .house-slide {
+    flex: 0 0 92%;
+  }
+
   .portfolio-grid {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  .project-card.is-wide {
-    grid-column: span 1;
-  }
-
-  .project-card.is-wide .project-media img {
-    aspect-ratio: 4 / 3;
-  }
-
   .facts-row,
   .process-grid,
-  .wood-list {
+  .wood-list,
+  .design-pillars,
+  .custom-amount-row,
+  .card-row-2 {
     grid-template-columns: 1fr;
-    gap: 24px;
+    gap: 20px;
+  }
+
+  .sbp-box {
+    flex-direction: column;
   }
 
   .req-row {
@@ -1298,8 +1766,9 @@ p {
     gap: 3px;
   }
 
-  .contacts-form-wrap {
-    padding: 26px 22px;
+  .contacts-form-wrap,
+  .payment-panel {
+    padding: 24px 20px;
   }
 
   .modal {
@@ -1312,7 +1781,8 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
+  html,
+  .houses-track {
     scroll-behavior: auto;
   }
   *,
