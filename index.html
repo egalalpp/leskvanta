@@ -24,7 +24,6 @@
         <a href="#houses">Дома</a>
         <a href="#projects">Интерьеры</a>
         <a href="#design-project">Дизайн-проект</a>
-        <a href="#payment">Оплата</a>
         <a href="#about">О нас</a>
         <a href="#director">Реквизиты</a>
         <a href="#contacts">Контакты</a>
@@ -47,7 +46,6 @@
         <a href="#houses">Деревянные дома (10)</a>
         <a href="#projects">Мебель и интерьеры</a>
         <a href="#design-project">Дизайнерский проект</a>
-        <a href="#payment">Оплата и предоплата</a>
         <a href="#about">О компании</a>
         <a href="#director">Гендиректор и реквизиты</a>
         <a href="#contacts">Контакты</a>
@@ -190,8 +188,8 @@
             </p>
 
             <div class="design-actions">
-              <button type="button" class="btn btn-primary" id="orderDesignBtn">Оплатить / заказать дизайн-проект</button>
-              <a href="#contacts" class="text-link" id="discussDesignLink">Поговорить с&nbsp;дизайнером <span aria-hidden="true">→</span></a>
+              <button type="button" class="btn btn-primary" id="orderDesignBtn">Заказать дизайн-проект</button>
+              <a href="tel:+74957720734" class="text-link">Позвонить и&nbsp;обсудить <span aria-hidden="true">→</span></a>
             </div>
           </div>
 
@@ -288,172 +286,8 @@
       </div>
     </section>
 
-    <!-- Платёжка / Оплата и предоплата -->
-    <section class="section payment-section soft-surface" id="payment">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Оплата и&nbsp;предоплата</p>
-            <h2>Удобная оплата проекта или&nbsp;аванса</h2>
-          </div>
-          <p class="section-intro">
-            Выберите услугу или&nbsp;укажите сумму по&nbsp;договору. Принимаем оплату по&nbsp;СБП,
-            банковской картой и&nbsp;по&nbsp;безналичному счёту для&nbsp;физлиц и&nbsp;компаний с&nbsp;документами от&nbsp;ООО «ЛЕСКВАНТ».
-          </p>
-        </div>
-
-        <div class="payment-layout">
-          <div class="payment-presets" role="radiogroup" aria-label="Назначение платежа">
-            <button type="button" class="preset-option is-selected" data-preset="design" data-amount="35000" data-title="Индивидуальный дизайн-проект">
-              <div class="preset-top">
-                <span class="preset-name">Дизайнерский проект</span>
-                <span class="preset-price">35 000 ₽</span>
-              </div>
-              <p class="preset-desc">Планировка, 3D-визуализация, подбор дерева и&nbsp;рабочие чертежи. Засчитывается в&nbsp;стоимость при&nbsp;заказе.</p>
-            </button>
-
-            <button type="button" class="preset-option" data-preset="measure" data-amount="5000" data-title="Выезд инженера, замер и образцы">
-              <div class="preset-top">
-                <span class="preset-name">Выезд и&nbsp;замер с&nbsp;образцами</span>
-                <span class="preset-price">5 000 ₽</span>
-              </div>
-              <p class="preset-desc">Привезём живые выкрасы дуба, ореха и&nbsp;лиственницы, снимем точные размеры и&nbsp;посчитаем смету.</p>
-            </button>
-
-            <button type="button" class="preset-option" data-preset="contract" data-amount="150000" data-title="Предоплата по договору">
-              <div class="preset-top">
-                <span class="preset-name">Предоплата по&nbsp;договору</span>
-                <span class="preset-price">Своя сумма</span>
-              </div>
-              <p class="preset-desc">Внесение аванса или&nbsp;этапного платежа за&nbsp;строительство дома, мебель или&nbsp;лестницу по&nbsp;номеру договора.</p>
-            </button>
-
-            <div class="custom-amount-row" id="customAmountRow" hidden>
-              <div class="form-field">
-                <label for="payContractNumber">Номер договора или&nbsp;комментарий</label>
-                <input type="text" id="payContractNumber" placeholder="Например, Договор № 142/26">
-              </div>
-              <div class="form-field">
-                <label for="payCustomAmount">Сумма к&nbsp;оплате, ₽</label>
-                <input type="number" id="payCustomAmount" min="1000" step="500" value="150000" placeholder="150000">
-              </div>
-            </div>
-          </div>
-
-          <div class="payment-panel">
-            <div class="payment-summary">
-              <span class="payment-summary-label" id="paySummaryTitle">Индивидуальный дизайн-проект</span>
-              <span class="payment-summary-amount" id="paySummaryAmount">35 000 ₽</span>
-            </div>
-
-            <div class="pay-method-tabs" role="tablist" aria-label="Способ оплаты">
-              <button type="button" class="pay-tab is-active" role="tab" aria-selected="true" data-method="sbp">СБП (QR)</button>
-              <button type="button" class="pay-tab" role="tab" aria-selected="false" data-method="card">Банковская карта</button>
-              <button type="button" class="pay-tab" role="tab" aria-selected="false" data-method="invoice">Счёт (PDF)</button>
-            </div>
-
-            <!-- Вкладка СБП -->
-            <div class="pay-pane is-active" id="pane-sbp">
-              <div class="sbp-box">
-                <div class="qr-wrap" aria-label="QR-код для оплаты по СБП">
-                  <svg viewBox="0 0 120 120" width="136" height="136" role="img" aria-label="QR СБП">
-                    <rect width="120" height="120" fill="#FAF8F4" rx="4"/>
-                    <g fill="#241F1B">
-                      <rect x="10" y="10" width="28" height="28" rx="2"/>
-                      <rect x="15" y="15" width="18" height="18" fill="#FAF8F4"/>
-                      <rect x="19" y="19" width="10" height="10"/>
-                      <rect x="82" y="10" width="28" height="28" rx="2"/>
-                      <rect x="87" y="15" width="18" height="18" fill="#FAF8F4"/>
-                      <rect x="91" y="19" width="10" height="10"/>
-                      <rect x="10" y="82" width="28" height="28" rx="2"/>
-                      <rect x="15" y="87" width="18" height="18" fill="#FAF8F4"/>
-                      <rect x="19" y="91" width="10" height="10"/>
-                      <rect x="46" y="12" width="6" height="6"/><rect x="58" y="12" width="6" height="12"/>
-                      <rect x="70" y="18" width="6" height="6"/><rect x="46" y="24" width="12" height="6"/>
-                      <rect x="64" y="30" width="12" height="6"/><rect x="12" y="46" width="12" height="6"/>
-                      <rect x="30" y="46" width="6" height="18"/><rect x="42" y="46" width="18" height="6"/>
-                      <rect x="66" y="46" width="6" height="12"/><rect x="78" y="46" width="18" height="6"/>
-                      <rect x="102" y="46" width="6" height="12"/><rect x="12" y="58" width="12" height="12"/>
-                      <rect x="48" y="58" width="12" height="12"/><rect x="72" y="58" width="12" height="6"/>
-                      <rect x="90" y="58" width="18" height="6"/><rect x="42" y="76" width="6" height="12"/>
-                      <rect x="54" y="76" width="18" height="6"/><rect x="78" y="70" width="6" height="18"/>
-                      <rect x="90" y="70" width="12" height="12"/><rect x="48" y="90" width="12" height="6"/>
-                      <rect x="66" y="88" width="6" height="18"/><rect x="82" y="94" width="12" height="12"/>
-                      <rect x="98" y="88" width="10" height="6"/><rect x="100" y="100" width="8" height="8"/>
-                      <rect x="46" y="102" width="14" height="6"/>
-                    </g>
-                  </svg>
-                </div>
-                <div class="sbp-details">
-                  <p class="sbp-title">Оплата по&nbsp;СБП без&nbsp;комиссии</p>
-                  <p class="sbp-meta">Получатель: <strong>ООО «ЛЕСКВАНТ»</strong></p>
-                  <p class="sbp-meta">ИНН: 7723422889 · КПП: 772301001</p>
-                  <p class="sbp-meta">Назначение: <span id="sbpPurpose">Оплата: Индивидуальный дизайн-проект</span></p>
-                  <div class="sbp-actions">
-                    <button type="button" class="btn btn-primary" id="confirmSbpBtn">Сформировать платёж СБП</button>
-                    <button type="button" class="copy-all-btn" id="copySbpPurposeBtn">Скопировать назначение</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Вкладка Карта -->
-            <div class="pay-pane" id="pane-card">
-              <form class="pay-card-form" id="cardPayForm" novalidate>
-                <div class="form-field">
-                  <label for="cardNumber">Номер карты (Мир, Visa, Mastercard)</label>
-                  <input type="text" id="cardNumber" inputmode="numeric" maxlength="19" placeholder="2200 0000 0000 0000" required>
-                </div>
-                <div class="card-row-2">
-                  <div class="form-field">
-                    <label for="cardExpiry">Срок действия</label>
-                    <input type="text" id="cardExpiry" inputmode="numeric" maxlength="5" placeholder="ММ/ГГ" required>
-                  </div>
-                  <div class="form-field">
-                    <label for="cardCvc">CVC / CVV</label>
-                    <input type="password" id="cardCvc" inputmode="numeric" maxlength="3" placeholder="•••" required>
-                  </div>
-                </div>
-                <div class="form-field">
-                  <label for="cardEmail">Почта для&nbsp;электронного чека (54-ФЗ)</label>
-                  <input type="email" id="cardEmail" placeholder="name@example.ru" required>
-                </div>
-                <button type="submit" class="btn btn-primary" id="cardPayBtn">Оплатить 35 000 ₽</button>
-              </form>
-            </div>
-
-            <!-- Вкладка Счёт -->
-            <div class="pay-pane" id="pane-invoice">
-              <form class="pay-card-form" id="invoiceForm" novalidate>
-                <div class="form-field">
-                  <label for="invPayer">ФИО плательщика или&nbsp;название компании</label>
-                  <input type="text" id="invPayer" placeholder="Например, Иванов Андрей Сергеевич или ООО «...»" required>
-                </div>
-                <div class="form-field">
-                  <label for="invInn">ИНН плательщика (для юрлиц и&nbsp;ИП, необязательно)</label>
-                  <input type="text" id="invInn" inputmode="numeric" maxlength="12" placeholder="10 или 12 цифр">
-                </div>
-                <div class="form-field">
-                  <label for="invContact">Телефон или&nbsp;почта для&nbsp;отправки счёта</label>
-                  <input type="text" id="invContact" placeholder="+7 (999) 000-00-00 или email" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Сформировать и&nbsp;распечатать счёт</button>
-              </form>
-            </div>
-
-            <div class="form-status" id="paymentStatus" role="status" aria-live="polite" hidden></div>
-
-            <p class="payment-footnote">
-              Демо-режим платёжного виджета: к&nbsp;форме можно за&nbsp;10 минут подключить боевой эквайринг
-              ЮKassa, Т-Кассы или&nbsp;СберБизнеса на&nbsp;расчётный счёт ООО «ЛЕСКВАНТ».
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- О компании -->
-    <section class="section about-section" id="about">
+    <section class="section about-section soft-surface" id="about">
       <div class="container">
         <div class="about-layout">
           <div class="about-text">
@@ -516,7 +350,7 @@
     </section>
 
     <!-- Генеральный директор и реквизиты -->
-    <section class="section director-section soft-surface" id="director">
+    <section class="section director-section" id="director">
       <div class="container">
         <div class="director-layout">
           <div class="director-bio">
@@ -632,7 +466,7 @@
     </section>
 
     <!-- Контакты и форма -->
-    <section class="section contacts-section" id="contacts">
+    <section class="section contacts-section soft-surface" id="contacts">
       <div class="container">
         <div class="contacts-layout">
           <div class="contacts-info">
@@ -720,7 +554,7 @@
         <a href="#houses">Дома</a>
         <a href="#projects">Интерьеры</a>
         <a href="#design-project">Дизайн-проект</a>
-        <a href="#payment">Оплата</a>
+        <a href="#director">Реквизиты</a>
         <a href="https://checko.ru/person/501204399621" target="_blank" rel="noopener noreferrer">Checko ↗</a>
         <a href="#top" class="back-top">Наверх ↑</a>
       </div>
